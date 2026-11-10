@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speakers",
+  "info": {
+    "singularName": "speaker",
+    "pluralName": "speakers",
+    "displayName": "Speaker"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true, "maxLength": 150 },
+    "slug": { "type": "uid", "targetField": "name", "required": true },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "designation": { "type": "string", "required": true, "maxLength": 200 },
+    "bio": { "type": "text", "required": true },
+    "expertise": { "type": "string", "required": true, "maxLength": 250 },
+    "featured": { "type": "boolean", "default": false },
+    "programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::program.program",
+      "mappedBy": "speakers"
+    }
+  }
+}

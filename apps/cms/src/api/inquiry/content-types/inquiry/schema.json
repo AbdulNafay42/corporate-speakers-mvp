@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inquiries",
+  "info": {
+    "singularName": "inquiry",
+    "pluralName": "inquiries",
+    "displayName": "Inquiry"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "name": { "type": "string", "required": true, "maxLength": 120 },
+    "email": { "type": "email", "required": true, "maxLength": 254 },
+    "company": { "type": "string", "required": true, "maxLength": 160 },
+    "message": { "type": "text", "required": true, "maxLength": 5000 },
+    "submissionDate": { "type": "datetime", "required": true }
+  }
+}

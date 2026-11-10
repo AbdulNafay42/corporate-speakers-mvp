@@ -1,0 +1,66 @@
+{
+  "speakers": [
+    {
+      "documentId": "demo-1",
+      "name": "Dr. Maya Bennett",
+      "slug": "maya-bennett",
+      "designation": "Leadership strategist & organizational psychologist",
+      "expertise": "Leadership, Culture, Change",
+      "bio": "Maya helps leaders turn ambitious strategy into everyday practice. Her sessions explore how trust, clarity, and a more human approach to work can help teams navigate change.\n\nThrough practical frameworks and thoughtful conversation, she equips participants to lead with intention and build cultures where people can do their best work.",
+      "featured": true,
+      "image": null
+    },
+    {
+      "documentId": "demo-2",
+      "name": "Adrian Cole",
+      "slug": "adrian-cole",
+      "designation": "Innovation advisor & future-of-work speaker",
+      "expertise": "Innovation, Future of work, AI",
+      "bio": "Adrian makes emerging ideas accessible. He works with teams to explore the changing world of work, question familiar assumptions, and create space for experimentation.\n\nHis interactive talks connect future trends with concrete decisions leaders can make today.",
+      "featured": true,
+      "image": null
+    },
+    {
+      "documentId": "demo-3",
+      "name": "Sofia Reyes",
+      "slug": "sofia-reyes",
+      "designation": "Communication coach & executive facilitator",
+      "expertise": "Communication, Collaboration, Influence",
+      "bio": "Sofia helps people communicate with confidence and listen with curiosity. Her work focuses on the conversations that shape team performance, from giving feedback to aligning around a shared purpose.\n\nParticipants leave with simple tools they can put into practice in their very next meeting.",
+      "featured": true,
+      "image": null
+    }
+  ],
+  "programs": [
+    {
+      "documentId": "program-1",
+      "title": "Leading through change",
+      "slug": "leading-through-change",
+      "description": "Give your leaders the perspective and practical tools to move forward with confidence. This facilitated program explores how to create clarity, build trust, and bring people along when the path ahead is uncertain.\n\nParticipants practice communicating change, working with resistance, and translating strategy into shared action. Designed for leadership teams and people managers.",
+      "duration": "Half-day workshop",
+      "featured": true,
+      "image": null,
+      "speakers": []
+    },
+    {
+      "documentId": "program-2",
+      "title": "The next chapter of work",
+      "slug": "the-next-chapter-of-work",
+      "description": "A fresh perspective on the forces reshaping how we work. Explore the role of AI, human creativity, and continuous learning in building a more adaptable organization.\n\nAn engaging keynote followed by a facilitated discussion helps your team turn big questions into practical next steps.",
+      "duration": "60-90 minute keynote",
+      "featured": true,
+      "image": null,
+      "speakers": []
+    },
+    {
+      "documentId": "program-3",
+      "title": "Conversations that connect",
+      "slug": "conversations-that-connect",
+      "description": "Build a shared language for better collaboration. This interactive session gives teams space to practice active listening, constructive feedback, and communication across different perspectives.\n\nRealistic exercises help participants move from good intentions to productive habits.",
+      "duration": "Full-day team experience",
+      "featured": false,
+      "image": null,
+      "speakers": []
+    }
+  ]
+}

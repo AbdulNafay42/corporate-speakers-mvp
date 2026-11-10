@@ -1,0 +1,876 @@
+{
+  "title": "Forum Admin Handbook",
+  "subtitle": "Corporate Speakers & Programs | Strapi 5",
+  "version": "1.0",
+  "date": "10 November 2026",
+  "strapi": "5.61.1",
+  "chapters": [
+    {
+      "title": "1. Getting around the admin",
+      "description": "Sign in, understand the navigation, and manage your own preferences.",
+      "screens": [
+        {
+          "id": "01-login",
+          "title": "Sign in to Strapi",
+          "path": "http://localhost:1337/admin",
+          "purpose": "The entry point for staff who manage website content.",
+          "steps": [
+            "Enter your administrator email and password, then choose Login.",
+            "Use an account invited by an existing administrator. The website does not offer customer sign-in.",
+            "If the page cannot load, confirm PostgreSQL and Strapi are running; local startup steps are in LOCAL_SETUP.md."
+          ],
+          "note": "Do not share administrator passwords. Password recovery depends on a working email provider."
+        },
+        {
+          "id": "02-dashboard",
+          "title": "Dashboard and navigation",
+          "path": "Home icon in the left rail",
+          "purpose": "A quick view of recent edits, published content, profile information, and project statistics.",
+          "steps": [
+            "Select a recent entry to open it directly in Content Manager.",
+            "Use the left rail for Content Manager, Media Library, Content-Type Builder, and Settings.",
+            "Counts and timestamps change as content changes; they are not website analytics."
+          ],
+          "note": "The temporary Documentation Preview account and sample inquiry are shown for illustration. They are removed after capture."
+        },
+        {
+          "id": "39-dashboard-widgets",
+          "title": "Dashboard widgets",
+          "path": "Home > Add Widget",
+          "purpose": "Choose from dashboard widgets that are not already displayed.",
+          "steps": [
+            "Select Add Widget to view available widgets.",
+            "In this capture all available widgets are already present, so the dialog reports that none can be added.",
+            "Close the dialog to return to the dashboard. Widget controls do not publish website content."
+          ],
+          "note": "The screenshot shows the current empty widget-selection dialog, not a missing application feature."
+        },
+        {
+          "id": "34-profile",
+          "title": "Your profile and preferences",
+          "path": "Profile avatar > Profile settings",
+          "purpose": "Manage the signed-in administrator account and interface preferences.",
+          "steps": [
+            "Edit your profile fields and choose Save when a change is intentional.",
+            "Use the password section to change your password; provide the required current password and confirmation.",
+            "Choose interface language and light/dark mode under Experience. Preferences apply to your account."
+          ],
+          "note": "Interface language changes the admin UI; it does not translate website content."
+        }
+      ]
+    },
+    {
+      "title": "2. Managing speakers",
+      "description": "Create a complete profile, publish it, and control homepage visibility.",
+      "screens": [
+        {
+          "id": "03-speakers-list",
+          "title": "Speaker collection",
+          "path": "Content Manager > Speaker",
+          "purpose": "Find and manage all speaker entries, including draft and published profiles.",
+          "steps": [
+            "Choose Create new entry to add a speaker, or select an existing row to edit it.",
+            "Use Search and Filters to locate records; use column headers or View settings where available.",
+            "Check the Status column before expecting a profile to appear on the website."
+          ],
+          "note": "The list is an admin view. The public website only requests published content."
+        },
+        {
+          "id": "04-speaker-create",
+          "title": "Create a speaker",
+          "path": "Content Manager > Speaker > Create new entry",
+          "purpose": "Enter the speaker information that powers cards and the detail page.",
+          "steps": [
+            "Fill name, slug, designation, bio, and expertise. Required fields have an asterisk.",
+            "Add one image, use a clear portrait, and provide meaningful alternative text in the media record.",
+            "Enter expertise as comma-separated topics. Set featured to TRUE when the profile should be eligible for the homepage.",
+            "Choose Save to keep a draft. Choose Publish when the profile is ready for public display."
+          ],
+          "note": "An example slug is maya-bennett. The public address becomes /speakers/maya-bennett."
+        },
+        {
+          "id": "05-speaker-edit",
+          "title": "Edit an existing speaker",
+          "path": "Content Manager > Speaker > select a row",
+          "purpose": "Review and update profile text, imagery, featured status, and linked programs.",
+          "steps": [
+            "Edit the draft version and save your changes. Saving alone does not update the published version.",
+            "Choose Publish to make the revised content visible. Compare Draft and Published tabs when reviewing differences.",
+            "Keep the slug stable after publication. Changing it changes the public URL.",
+            "Open the corresponding public profile to verify the result."
+          ],
+          "note": "The programs field is the reverse side of the Program speakers relation. Publishing a speaker does not automatically publish a related program."
+        },
+        {
+          "id": "38-publishing-actions",
+          "title": "Publish, unpublish, and discard changes",
+          "path": "Entry editor > three-dot menu beside Publish",
+          "purpose": "Manage the live version and any unpublished edits.",
+          "steps": [
+            "Choose Publish after checking required fields and content quality.",
+            "Open More document actions to see Unpublish and Discard changes when available.",
+            "Unpublish removes the live version from public listings and detail pages; it keeps the record in the CMS.",
+            "Discard changes removes unpublished edits. Use the entry or row action menu for Delete only when permanent removal is intended."
+          ],
+          "note": "Do not confuse Save with Publish. Deleting an entry is different from unpublishing it."
+        },
+        {
+          "id": "47-content-filters",
+          "title": "Find records with filters",
+          "path": "Content Manager > a collection > Filters",
+          "purpose": "Narrow the admin list without changing content.",
+          "steps": [
+            "Choose a field and comparison, then enter the value to filter by.",
+            "Add another condition when a narrower result is needed.",
+            "Clear the search and filters before concluding that an entry is missing."
+          ],
+          "note": "Admin list filtering is separate from the public website, which has no advanced search in this MVP."
+        }
+      ]
+    },
+    {
+      "title": "3. Managing programs",
+      "description": "Maintain program descriptions, images, durations, and related speakers.",
+      "screens": [
+        {
+          "id": "06-programs-list",
+          "title": "Program collection",
+          "path": "Content Manager > Program",
+          "purpose": "Review available program entries and their publication status.",
+          "steps": [
+            "Select a row to inspect or edit a program.",
+            "Choose Create new entry to add a program.",
+            "Check its slug and status before testing the public detail page."
+          ],
+          "note": "A dash in the Image column means no media is attached. The frontend displays a designed visual fallback."
+        },
+        {
+          "id": "07-program-create",
+          "title": "Create a program",
+          "path": "Content Manager > Program > Create new entry",
+          "purpose": "Define a learning experience for the program cards and detail page.",
+          "steps": [
+            "Fill title, slug, description, and duration. Duration is readable text, such as Half-day workshop.",
+            "Add one program image when available. Use paragraph breaks in description; it is plain text, not an HTML editor.",
+            "Choose related speakers in the speakers relation field. Publish those speaker profiles as well.",
+            "Set featured to TRUE if appropriate, then Save and Publish when ready."
+          ],
+          "note": "The public detail URL follows /programs/<slug>. No booking, payment, or scheduling engine is connected to duration."
+        },
+        {
+          "id": "08-program-edit",
+          "title": "Edit a program and its speakers",
+          "path": "Content Manager > Program > select a row",
+          "purpose": "Update the published experience and the speaker cards associated with it.",
+          "steps": [
+            "Review description, duration, image, and featured status.",
+            "Use the relation selector to add speakers; use the remove control to detach a relation. This does not delete the speaker.",
+            "Save the draft, then Publish the program to apply changes to the website.",
+            "Verify the program detail page and its facilitator section."
+          ],
+          "note": "The homepage displays up to two featured programs. Public programs are sorted by title, not by manual relation order."
+        }
+      ]
+    },
+    {
+      "title": "4. Reviewing contact inquiries",
+      "description": "Find and read messages submitted through the website contact form.",
+      "screens": [
+        {
+          "id": "09-inquiries-list",
+          "title": "Inquiry collection",
+          "path": "Content Manager > Inquiry",
+          "purpose": "View contact requests stored securely in Strapi.",
+          "steps": [
+            "Open the collection to see the sender, email, and company.",
+            "Select a row to read the complete message and submission date.",
+            "Use Search or Filters to find a sender or organization."
+          ],
+          "note": "The example inquiry in these captures is temporary documentation data. Real inquiries are not publicly listed."
+        },
+        {
+          "id": "10-inquiry-detail",
+          "title": "Read an inquiry",
+          "path": "Content Manager > Inquiry > select a row",
+          "purpose": "Review the information needed for a human follow-up.",
+          "steps": [
+            "Read name, email, company, message, and submissionDate.",
+            "Contact the sender through your normal business communication process.",
+            "Keep the original message and timestamp intact unless correcting a documented data-entry error."
+          ],
+          "note": "There is no Publish action, response-status workflow, or automatic email notification for inquiries in this MVP."
+        },
+        {
+          "id": "11-inquiries-empty",
+          "title": "Empty inquiry results",
+          "path": "Content Manager > Inquiry > empty or filtered list",
+          "purpose": "Understand the No content found state.",
+          "steps": [
+            "If a search or filter is active, clear it to see all available records.",
+            "If no inquiries have been submitted, this state is expected.",
+            "To test the actual intake flow, submit the website Contact form and return to this list."
+          ],
+          "note": "This screenshot uses a search with no matches. An empty collection displays the same no-content result."
+        },
+        {
+          "id": "40-inquiry-create",
+          "title": "Manual inquiry entry",
+          "path": "Content Manager > Inquiry > Create new entry",
+          "purpose": "A standard Strapi form that can be used for intentional manual data entry.",
+          "steps": [
+            "Normal inquiries should arrive through the website contact form.",
+            "For a manual record, fill all required sender, company, message, and date fields and choose Save.",
+            "A manually created entry does not prove that the website submission flow is working."
+          ],
+          "note": "The website and CMS intake endpoint set the submission date on the server. The generic admin form permits authorized staff to enter it manually."
+        }
+      ]
+    },
+    {
+      "title": "5. Working with images",
+      "description": "Upload assets, select them in entries, and maintain useful metadata.",
+      "screens": [
+        {
+          "id": "12-media-library",
+          "title": "Media library and folders",
+          "path": "Media Library > API Uploads",
+          "purpose": "Browse and manage the uploaded speaker portraits and other assets.",
+          "steps": [
+            "Open a folder to see its contents. The API Uploads folder contains the current sample portraits.",
+            "Use search, sorting, filters, or grid/table view to find an image.",
+            "Select an asset to inspect its metadata, or use New to add files or folders."
+          ],
+          "note": "The Home folder can be empty while assets exist inside API Uploads."
+        },
+        {
+          "id": "13-media-upload-menu",
+          "title": "Upload files and organize folders",
+          "path": "Media Library > New",
+          "purpose": "Choose how an asset is added to the library.",
+          "steps": [
+            "Choose File upload to select an image from your computer.",
+            "Choose New folder to organize media, or File upload from URL when appropriate.",
+            "After uploading, return to the speaker/program image field and choose Add asset to attach the file."
+          ],
+          "note": "Uploading an image alone does not assign it to a speaker or program. Attach it to the entry and publish that entry."
+        },
+        {
+          "id": "14-media-asset-detail",
+          "title": "Asset details and alternative text",
+          "path": "Media Library > select an asset",
+          "purpose": "Inspect dimensions and file size, and maintain image metadata.",
+          "steps": [
+            "Check the preview, file name, dimensions, and location.",
+            "Add meaningful Alternative text that describes the image; scroll the details panel if necessary.",
+            "Choose Save changes after an intentional metadata edit.",
+            "Avoid deleting assets that are still used by a published profile or program."
+          ],
+          "note": "The included portraits illustrate fictional sample speakers. Replace them with approved real assets before launch."
+        },
+        {
+          "id": "46-upload-url",
+          "title": "Import an image from a URL",
+          "path": "Media Library > New > File upload from URL",
+          "purpose": "Import a remotely hosted asset into the media library.",
+          "steps": [
+            "Enter the image URL in the Import from URL dialog.",
+            "Use a separate line for each additional URL, as indicated by the dialog.",
+            "Choose Upload only for assets you are authorized to use, then attach the imported image to an entry."
+          ],
+          "note": "This screen is documented for completeness. No remote imports were submitted while producing this guide."
+        }
+      ]
+    },
+    {
+      "title": "6. Understanding the content models",
+      "description": "Reference the existing schema; content editing belongs in Content Manager.",
+      "screens": [
+        {
+          "id": "15-schema-speaker",
+          "title": "Speaker content model",
+          "path": "Content-Type Builder > Speaker",
+          "purpose": "The structure of a speaker entry, including its reverse program relation.",
+          "steps": [
+            "Review name, slug, image, designation, bio, expertise, featured, and programs.",
+            "Use Content Manager for routine record creation and editing.",
+            "Coordinate field additions, removals, or type changes with the developer so the frontend and database remain compatible."
+          ],
+          "note": "Content-Type Builder is a development tool. Schema editing may be unavailable in a production Strapi deployment."
+        },
+        {
+          "id": "16-schema-program",
+          "title": "Program content model",
+          "path": "Content-Type Builder > Program",
+          "purpose": "The structure of program content and its many-to-many speaker relation.",
+          "steps": [
+            "Review title, slug, image, description, duration, speakers, and featured.",
+            "One program can reference several speakers, and a speaker can belong to several programs.",
+            "The model supports Draft & Publish. Relation changes must be published with the entry to reach the website."
+          ],
+          "note": "Removing a relation is different from deleting either related record."
+        },
+        {
+          "id": "17-schema-inquiry",
+          "title": "Inquiry content model",
+          "path": "Content-Type Builder > Inquiry",
+          "purpose": "The private contact-submission model.",
+          "steps": [
+            "Review name, email, company, message, and submissionDate.",
+            "Inquiries have no Draft & Publish workflow.",
+            "Keep public role permissions disabled for this collection; the website uses a separate create-only server token."
+          ],
+          "note": "Do not add customer login, booking, or payment fields as part of routine content administration."
+        }
+      ]
+    },
+    {
+      "title": "7. Access, roles, and integration credentials",
+      "description": "Administrator-only screens for staff access and the server connection.",
+      "screens": [
+        {
+          "id": "18-settings-overview",
+          "title": "Application settings overview",
+          "path": "Settings > Overview",
+          "purpose": "View the application version, plan, branding controls, and support links.",
+          "steps": [
+            "Use this page to confirm the Strapi application information.",
+            "Menu and authentication logos are admin branding controls, separate from the Next.js website design.",
+            "Coordinate application configuration changes with the developer."
+          ],
+          "note": "The Community plan and available controls reflect the currently installed local application."
+        },
+        {
+          "id": "19-api-tokens",
+          "title": "Content API tokens",
+          "path": "Settings > Global Settings > API Tokens",
+          "purpose": "Manage credentials used by server-side integrations with the content REST API.",
+          "steps": [
+            "The website uses separate content-read and inquiry-create custom tokens.",
+            "Do not use a Full Access token as the website credential.",
+            "If rotating a website token, update the matching server environment variable and restart Next.js."
+          ],
+          "note": "Token values are intentionally absent from this document. API Tokens differ from Admin Tokens."
+        },
+        {
+          "id": "20-api-token-create",
+          "title": "Create a custom API token",
+          "path": "Settings > API Tokens > Create new API Token",
+          "purpose": "Configure a token with a specific purpose and limited actions.",
+          "steps": [
+            "Provide a clear name, description, duration, and Custom token type.",
+            "For website content, allow Speaker find/findOne and Program find/findOne only.",
+            "For inquiry intake, allow Inquiry create only; do not grant find, update, or delete.",
+            "Save the token, then store its value only in the relevant server environment variable."
+          ],
+          "note": "Use STRAPI_READ_TOKEN and STRAPI_INQUIRY_TOKEN in apps/web/.env.local. Never put either token in a NEXT_PUBLIC variable."
+        },
+        {
+          "id": "22-admin-users",
+          "title": "Administrator accounts",
+          "path": "Settings > Administration Panel > Users",
+          "purpose": "Review the staff accounts that can access Strapi.",
+          "steps": [
+            "Check each account role and Active status.",
+            "Use Invite new user to onboard a staff member.",
+            "Deactivate or remove departed staff through the available account actions, following your organization process."
+          ],
+          "note": "These are administrator accounts. They are separate from the User collection supplied by Users & Permissions."
+        },
+        {
+          "id": "41-invite-admin",
+          "title": "Invite a staff administrator",
+          "path": "Settings > Users > Invite new user",
+          "purpose": "Enter a new staff member and choose the role they require.",
+          "steps": [
+            "Fill first name, email, and the required role selection. Last name is optional.",
+            "Choose an appropriate role rather than giving every staff member Super Admin access.",
+            "Review the details before choosing Invite user; follow the registration instructions returned by Strapi."
+          ],
+          "note": "This guide only opened the invite dialog. No invitations were sent."
+        },
+        {
+          "id": "21-admin-roles",
+          "title": "Administrator roles",
+          "path": "Settings > Administration Panel > Roles",
+          "purpose": "Review the built-in Author, Editor, and Super Admin roles.",
+          "steps": [
+            "Open a role to inspect its actual permissions before assigning it.",
+            "Use content permissions for daily editors and reserve application settings for administrators.",
+            "Duplicate or add a role when a deliberately scoped role is needed."
+          ],
+          "note": "Default role descriptions are not a substitute for reviewing the configured permission matrix."
+        },
+        {
+          "id": "36-editor-role",
+          "title": "Role permissions matrix",
+          "path": "Settings > Administration Panel > Roles > Editor",
+          "purpose": "Configure access to collections, plugins, and settings.",
+          "steps": [
+            "Review Create, Read, Update, Delete, and Publish permissions per collection.",
+            "Use the Plugins and Settings tabs to inspect additional access.",
+            "Choose Save only after reviewing the intended permissions with the application owner."
+          ],
+          "note": "The documentation capture did not change role permissions."
+        },
+        {
+          "id": "45-admin-role-create",
+          "title": "Create an administrator role",
+          "path": "Settings > Roles > Add new role",
+          "purpose": "Define a named role and the access it should grant.",
+          "steps": [
+            "Enter a clear role name and description.",
+            "Select only the collection actions needed by the role.",
+            "Review plugin/settings access, save the role, and assign it to an appropriate administrator."
+          ],
+          "note": "A role does not create a user. Assign roles from the administrator user or invite workflow."
+        },
+        {
+          "id": "23-admin-tokens",
+          "title": "Administrative API tokens",
+          "path": "Settings > Administration Panel > Admin Tokens",
+          "purpose": "Manage programmatic access to admin features.",
+          "steps": [
+            "Review existing tokens and their purpose before making changes.",
+            "The website content client does not need an Admin Token.",
+            "Use content API tokens for the Next.js REST connection described earlier."
+          ],
+          "note": "This optional built-in capability is not required for operating the MVP website."
+        },
+        {
+          "id": "44-admin-token-create",
+          "title": "Create an administrative token",
+          "path": "Settings > Admin Tokens > Create new Admin Token",
+          "purpose": "Set up a deliberately scoped admin automation credential when required.",
+          "steps": [
+            "Enter name, description, and duration.",
+            "Review the collection, plugin, and settings permission tabs.",
+            "Create this credential only for a specific administrative integration, and keep it out of browser code."
+          ],
+          "note": "No Admin Token was created during documentation. This screen is included for completeness."
+        }
+      ]
+    },
+    {
+      "title": "8. Other built-in Strapi settings",
+      "description": "Reference screens included with Strapi; most are outside daily MVP operations.",
+      "screens": [
+        {
+          "id": "24-public-roles",
+          "title": "Application API roles",
+          "path": "Settings > Users & Permissions Plugin > Roles",
+          "purpose": "View Public and Authenticated permissions for application users.",
+          "steps": [
+            "Distinguish these roles from administrator roles.",
+            "Public represents requests without an application-user login.",
+            "Open a role to inspect the allowed content API actions."
+          ],
+          "note": "The Next.js website uses scoped server tokens and has no customer sign-in feature."
+        },
+        {
+          "id": "35-public-permissions",
+          "title": "Public content permissions",
+          "path": "Settings > Users & Permissions > Roles > Public",
+          "purpose": "Inspect which actions unauthenticated API requests may use.",
+          "steps": [
+            "Keep all Inquiry actions unchecked for Public and Authenticated roles.",
+            "Speaker and Program public actions may also remain disabled because the website fetches with its server token.",
+            "Do not enable public inquiry reads as a way to make the contact form work."
+          ],
+          "note": "The contact form posts to the Next.js endpoint, which calls Strapi with the create-only intake token."
+        },
+        {
+          "id": "37-application-users",
+          "title": "Application-user collection",
+          "path": "Content Manager > User",
+          "purpose": "A default collection installed by the Users & Permissions plugin.",
+          "steps": [
+            "This collection contains application-user records, not Strapi administrators.",
+            "Use Settings > Administration Panel > Users to manage staff.",
+            "Leave this collection unused for the current website unless a separately approved requirement introduces customer accounts."
+          ],
+          "note": "Seeing this default User collection does not mean customer login has been implemented."
+        },
+        {
+          "id": "25-providers",
+          "title": "Application authentication providers",
+          "path": "Settings > Users & Permissions > Providers",
+          "purpose": "View the plugin provider settings bundled with Strapi.",
+          "steps": [
+            "The screen lists email and external authentication providers.",
+            "Leave provider configuration to a separate authentication requirement.",
+            "Changing these providers does not configure the Next.js contact form or administrator roles."
+          ],
+          "note": "Provider screens are documented as built-in settings; the MVP website does not use them."
+        },
+        {
+          "id": "26-email-templates",
+          "title": "Application-user email templates",
+          "path": "Settings > Users & Permissions > Email templates",
+          "purpose": "Review templates for application-user password reset and email confirmation.",
+          "steps": [
+            "Select a template to inspect its sender, subject, and body where editing is permitted.",
+            "Coordinate template changes with the developer and a working email provider.",
+            "Do not expect these templates to create contact inquiry notifications."
+          ],
+          "note": "Inquiry notification emails are outside the current MVP."
+        },
+        {
+          "id": "27-advanced-settings",
+          "title": "Application-user advanced settings",
+          "path": "Settings > Users & Permissions > Advanced settings",
+          "purpose": "Review registration and email-confirmation options supplied by the plugin.",
+          "steps": [
+            "Controls include default registration role, one account per email, sign-ups, and confirmation settings.",
+            "These options affect the plugin APIs; they do not add a login UI to Next.js.",
+            "Change them only as part of an intentional application-authentication configuration."
+          ],
+          "note": "No sign-up or authentication settings were changed for the documentation."
+        },
+        {
+          "id": "33-email-configuration",
+          "title": "Email provider configuration",
+          "path": "Settings > Email Plugin > Configuration",
+          "purpose": "Inspect the active email provider and its test-delivery screen.",
+          "steps": [
+            "The local application currently reports the sendmail provider.",
+            "Provider configuration is managed in the CMS configuration/environment by the developer.",
+            "Use the test-delivery form only when you intend to send a test message."
+          ],
+          "note": "No test email was sent. This setup does not imply production email delivery is configured."
+        },
+        {
+          "id": "28-locales",
+          "title": "Content locales",
+          "path": "Settings > Global Settings > Internationalization",
+          "purpose": "View the configured content locales.",
+          "steps": [
+            "The current application lists English as the default locale.",
+            "Admin interface language is changed from your profile, not this screen.",
+            "Adding a locale alone does not implement translated Next.js routes or translated content models."
+          ],
+          "note": "The current MVP is a single-language website."
+        },
+        {
+          "id": "29-media-settings",
+          "title": "Media processing settings",
+          "path": "Settings > Global Settings > Media Library",
+          "purpose": "Review automatic image-processing options.",
+          "steps": [
+            "Responsive formats, size optimization, and auto orientation can affect new uploads.",
+            "Coordinate changes with the developer, especially when storage providers or image delivery rules are involved.",
+            "Review uploaded results after a setting change."
+          ],
+          "note": "These controls manage Strapi media processing, not the design of frontend image cards."
+        },
+        {
+          "id": "30-plugins",
+          "title": "Installed plugins",
+          "path": "Settings > Global Settings > Plugins",
+          "purpose": "Inspect the plugins available in this Strapi installation.",
+          "steps": [
+            "Use this list when communicating the current setup to a developer.",
+            "Plugin installation, updates, and removal belong in the development workflow.",
+            "The Marketplace icon opens the external Strapi marketplace rather than a project admin screen."
+          ],
+          "note": "External marketplace pages and paid feature onboarding are not part of this local screen guide."
+        },
+        {
+          "id": "31-transfer-tokens",
+          "title": "Project transfer credentials",
+          "path": "Settings > Global Settings > Transfer Tokens",
+          "purpose": "Manage credentials used for Strapi data-transfer operations.",
+          "steps": [
+            "Review existing transfer tokens before a migration task.",
+            "Transfer tokens are separate from the website content and inquiry tokens.",
+            "Leave this screen unchanged during normal speaker/program administration."
+          ],
+          "note": "The MVP does not require a transfer token for daily use."
+        },
+        {
+          "id": "43-transfer-token-create",
+          "title": "Create a transfer token",
+          "path": "Settings > Transfer Tokens > Create new Transfer Token",
+          "purpose": "Define a credential for an intentional project data-transfer task.",
+          "steps": [
+            "Provide name, description, duration, and the required transfer token type.",
+            "Coordinate the operation with the developer and the source/destination project owners.",
+            "Store the resulting credential outside public code and documentation."
+          ],
+          "note": "No transfer token was created and no data transfer was performed."
+        },
+        {
+          "id": "32-webhooks",
+          "title": "Webhook list",
+          "path": "Settings > Global Settings > Webhooks",
+          "purpose": "Review configured integrations triggered by Strapi events.",
+          "steps": [
+            "The current local project has no configured webhooks.",
+            "Publishing works without a revalidation webhook because Next.js requests current content.",
+            "Add an integration only when it has a concrete operational requirement."
+          ],
+          "note": "There are no automated CRM, email, or booking integrations in this MVP."
+        },
+        {
+          "id": "42-webhook-create",
+          "title": "Create a webhook",
+          "path": "Settings > Webhooks > Create new webhook",
+          "purpose": "Configure an explicit external event destination when required.",
+          "steps": [
+            "Provide the destination name and URL, then any required headers.",
+            "Select only the events and content types the receiving integration needs.",
+            "Review the destination and payload exposure before saving or triggering a webhook."
+          ],
+          "note": "No webhook was saved or triggered. This optional form is shown for completeness."
+        }
+      ]
+    }
+  ],
+  "appendices": [
+    {
+      "title": "A. Speaker field reference",
+      "table": [
+        [
+          "Field",
+          "Type / rule",
+          "How it is used"
+        ],
+        [
+          "name",
+          "Required text; max 150",
+          "Public display name."
+        ],
+        [
+          "slug",
+          "Required unique UID",
+          "Generated from name. Public URL: /speakers/<slug>. Keep stable after publishing."
+        ],
+        [
+          "image",
+          "Optional; one image",
+          "Portrait used in cards and detail pages."
+        ],
+        [
+          "designation",
+          "Required text; max 200",
+          "Professional title beneath the name."
+        ],
+        [
+          "bio",
+          "Required multiline text",
+          "Plain text, rendered as paragraphs."
+        ],
+        [
+          "expertise",
+          "Required text; max 250",
+          "Comma-separated topics, e.g. Leadership, Culture, Change."
+        ],
+        [
+          "featured",
+          "Boolean; default FALSE",
+          "Makes a published profile eligible for the homepage."
+        ],
+        [
+          "programs",
+          "Many-to-many relation",
+          "Reverse links to the Program speakers field."
+        ]
+      ],
+      "note": "Speakers and programs use Draft & Publish. Inquiries have no publication stage and remain private. Website form validation may impose minimum lengths in addition to the CMS rules."
+    },
+    {
+      "title": "B. Program field reference",
+      "table": [
+        [
+          "Field",
+          "Type / rule",
+          "How it is used"
+        ],
+        [
+          "title",
+          "Required text; max 180",
+          "Public program name."
+        ],
+        [
+          "slug",
+          "Required unique UID",
+          "Generated from title. Public URL: /programs/<slug>."
+        ],
+        [
+          "image",
+          "Optional; one image",
+          "Program card and detail image. A designed fallback appears when absent."
+        ],
+        [
+          "description",
+          "Required multiline text",
+          "Plain text with paragraph breaks; HTML is not rendered."
+        ],
+        [
+          "duration",
+          "Required text; max 100",
+          "Readable duration, such as Half-day workshop."
+        ],
+        [
+          "speakers",
+          "Many-to-many relation",
+          "Related profiles. Publish them to display them publicly."
+        ],
+        [
+          "featured",
+          "Boolean; default FALSE",
+          "Makes a published program eligible for the homepage."
+        ]
+      ],
+      "note": "Speakers and programs use Draft & Publish. Inquiries have no publication stage and remain private. Website form validation may impose minimum lengths in addition to the CMS rules."
+    },
+    {
+      "title": "C. Inquiry field reference",
+      "table": [
+        [
+          "Field",
+          "Type / rule",
+          "How it is used"
+        ],
+        [
+          "name",
+          "Required text; max 120",
+          "Sender name. Website form minimum: 2 characters."
+        ],
+        [
+          "email",
+          "Required valid email; max 254",
+          "Address for human follow-up."
+        ],
+        [
+          "company",
+          "Required text; max 160",
+          "Organization. Website form minimum: 2 characters."
+        ],
+        [
+          "message",
+          "Required text; max 5000",
+          "Website form minimum: 20 characters."
+        ],
+        [
+          "submissionDate",
+          "Required date and time",
+          "Set on the CMS server by the inquiry intake endpoint."
+        ]
+      ],
+      "note": "Speakers and programs use Draft & Publish. Inquiries have no publication stage and remain private. Website form validation may impose minimum lengths in addition to the CMS rules."
+    },
+    {
+      "title": "D. Daily publishing checklist",
+      "blocks": [
+        [
+          "Publish a speaker from start to finish",
+          [
+            "Create the entry in Content Manager > Speaker. Fill required fields, attach a portrait, and review the slug.",
+            "Save the draft. Review spelling, biography paragraphs, expertise topics, and image alternative text.",
+            "Choose Publish and confirm the entry shows Published.",
+            "Open http://localhost:3000/speakers and select the profile, or open /speakers/<slug> directly.",
+            "To feature it on the homepage, set featured to TRUE and publish that change."
+          ]
+        ],
+        [
+          "Program and homepage checks",
+          [
+            "Publish related speaker profiles, link them from the program, then publish the program.",
+            "The homepage shows up to three featured speakers and two featured programs, selected from alphabetically sorted published lists.",
+            "More featured records can exist than the homepage displays. Drag order does not control homepage selection.",
+            "Use the public website for final review. The admin Set up preview prompt is not connected to a custom preview workflow in this MVP."
+          ]
+        ],
+        [
+          "Inquiry intake check",
+          [
+            "Submit a recognizable test message through the website Contact form, then confirm it appears in Content Manager > Inquiry.",
+            "After verification, remove only the identified test record if it is no longer needed."
+          ]
+        ]
+      ]
+    },
+    {
+      "title": "E. Troubleshooting",
+      "table": [
+        [
+          "Symptom",
+          "Check and next action"
+        ],
+        [
+          "Missing speaker or program",
+          "Check Published status, the correct slug, and cleared filters. Saving a draft does not update the live version."
+        ],
+        [
+          "Missing homepage feature",
+          "Check featured = TRUE and publish. Only 3 speakers and 2 programs appear; alphabetical selection applies."
+        ],
+        [
+          "Program has no speaker cards",
+          "Publish the linked speakers, verify the speakers relation, then publish the program changes."
+        ],
+        [
+          "Missing image",
+          "Use Add asset to attach an uploaded image to the entry. Save/publish and confirm its media URL is reachable."
+        ],
+        [
+          "Contact form rejected",
+          "Check required field lengths and the displayed error. SITE_URL must match the actual origin, including scheme and port."
+        ],
+        [
+          "Contact service unavailable",
+          "Ask the developer to check Strapi/database availability and STRAPI_INQUIRY_TOKEN. Do not expose inquiries publicly."
+        ],
+        [
+          "No inquiry appears",
+          "Confirm a successful form response, clear filters, and check the correct environment. A manual record does not test the contact form."
+        ],
+        [
+          "Admin will not load",
+          "Confirm PostgreSQL and Strapi are running. Admin uses port 1337; Next.js uses port 3000."
+        ],
+        [
+          "Saved edits not visible",
+          "Publish the draft, then refresh the public page. Ordinary content edits do not require a frontend rebuild."
+        ],
+        [
+          "Controls unavailable",
+          "Check your administrator role and environment. Some schema tools are development-only."
+        ]
+      ]
+    },
+    {
+      "title": "F. Access boundaries and handover",
+      "blocks": [
+        [
+          "Keep these concepts separate",
+          [
+            "Administrator users and roles: staff who can sign in to the built-in admin.",
+            "Users & Permissions users/roles: application-user APIs installed by the plugin; no customer login exists in this website.",
+            "Content API tokens: server-only speaker/program reads and create-only inquiry intake.",
+            "Admin Tokens and Transfer Tokens: optional admin automation and migration credentials; not website credentials."
+          ]
+        ],
+        [
+          "Operational checklist",
+          [
+            "Review staff access and keep an accountable owner for Super Admin access.",
+            "Keep Inquiry permissions disabled for Public and Authenticated roles. Restrict staff access to those who need it.",
+            "Rotate website credentials through the developer, update server environment variables, and restart Next.js. Never put token values in client code or documentation.",
+            "Keep database and uploaded-media backups. Agree how long inquiry data should be retained.",
+            "Replace fictional profiles and illustrative stock portraits with approved content before a real launch."
+          ]
+        ],
+        [
+          "Project references",
+          [
+            "README.md: installation, token permissions, configuration, and verification commands.",
+            "LOCAL_SETUP.md: restart instructions for this machine.",
+            "docs/admin/screenshots/: all full-resolution screenshot sources.",
+            "docs/admin/guide-content.json and scripts/build-admin-guide.py: editable content and the regeneration script."
+          ]
+        ]
+      ]
+    }
+  ]
+}

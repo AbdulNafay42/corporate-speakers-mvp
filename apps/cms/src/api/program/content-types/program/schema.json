@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programs",
+  "info": {
+    "singularName": "program",
+    "pluralName": "programs",
+    "displayName": "Program"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true, "maxLength": 180 },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "description": { "type": "text", "required": true },
+    "duration": { "type": "string", "required": true, "maxLength": 100 },
+    "speakers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::speaker.speaker",
+      "inversedBy": "programs"
+    },
+    "featured": { "type": "boolean", "default": false }
+  }
+}
